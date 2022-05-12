@@ -1,0 +1,29 @@
+.todos-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+  margin-top: 20px;
+  list-style: none;
+  width: 720px;
+}
+.no-data {
+  margin-top: 50px;
+  font-size: 30px;
+}
+.limit-btn {
+  height: 30px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 18px;
+  background-color: #9b59b6;
+  color: #4a235a;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

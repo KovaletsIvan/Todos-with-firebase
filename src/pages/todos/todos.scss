@@ -1,0 +1,54 @@
+.todos-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4ecf7;
+  color: #4a235a;
+  padding: 50px 0;
+}
+.logout-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 30px;
+  min-width: 200px;
+  font-size: 18px;
+  background-color: #9b59b6;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: #bb8fce;
+  color: #e8daef;
+}
+.todos-form {
+  display: flex;
+  gap: 10px;
+}
+.todos-input{
+  width: 300px;
+  height: 30px;
+  font-size: 18px;
+  padding: 3px 10px;
+  outline: none;
+  border: 1px solid #9b59b6;
+  border-radius: 3px;
+  color: #4a235a;
+}
+.todos-btn {
+  width: 100px;
+  height: 30px;
+  margin: auto;
+  font-size: 18px;
+  background-color: #9b59b6;
+  color: #4a235a;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.todos-btn:hover {
+  background-color: #bb8fce;
+  color: #e8daef;
+}

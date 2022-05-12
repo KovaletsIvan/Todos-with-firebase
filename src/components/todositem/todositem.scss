@@ -1,0 +1,28 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #9b59b6;
+  border-radius: 3px;
+  color: #4a235a;
+  padding: 3px 10px;
+}
+.todos-checkbox {
+  margin-left: auto;
+  cursor: pointer;
+}
+.todo-data {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.done {
+  font-style: italic;
+  text-decoration: line-through;
+}
+.remove-item {
+  display: flex;
+  margin-left: 10px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
