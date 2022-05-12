@@ -7,7 +7,8 @@ import "./login.scss";
 const LoginPage = () => {
   return (
     <div className="login-page">
-      <h1 className="title">Login</h1>
+      <h1 className="title">Create your own todo list!</h1>
+      <h2 className="login">Login</h2>
       <Login />
       <p className="linck-holder">
         or

@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { db } from "../../firebase";
 import { ref, set, onValue } from "firebase/database";
-import { getAuth } from "@firebase/auth";
 
 import TodosList from "../../components/todoslist/TodosList";
 
@@ -15,7 +14,7 @@ import "./todos.scss";
 
 const TodosPage = () => {
   const [todos, setTodos] = useState([]);
-  let [limit, setLimit] = useState(3);
+  let [limit, setLimit] = useState(5);
   const [todo, setTodo] = useState({
     title: "",
     subtitle: "",
@@ -26,18 +25,19 @@ const TodosPage = () => {
   const dispatch = useDispatch();
 
   const showTodosLimit = () => {
-    setLimit((limit += 3));
+    setLimit((limit += 5));
   };
 
   const handleLogout = () => {
     dispatch(logout());
   };
 
-  const todosRef = ref(db, "todos/");
+  const todosRef = ref(db, `todos/${id}/userTodo/`);
 
   useEffect(() => {
     const unsubscribe = onValue(todosRef, (snapshot) => {
       const data = snapshot.val();
+
       if (data !== null) {
         setTodos(Object.values(data));
       } else {
@@ -45,11 +45,11 @@ const TodosPage = () => {
       }
     });
     return unsubscribe;
-  }, []);
+  }, [todosRef]);
 
   const writeUserData = async () => {
     try {
-      await set(ref(db, "todos/" + todo.id), todo);
+      await set(ref(db, `todos/${id}/userTodo/` + todo.id), todo);
     } catch (err) {
       console.log(err);
     }
@@ -66,17 +66,6 @@ const TodosPage = () => {
   const clearForm = () => {
     setTodo({ title: "", subtitle: "", done: false, id: null });
   };
-
-  useEffect(() => {
-    getAuth()
-      .getUser(id)
-      .then((userRecord) => {
-        console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
-      })
-      .catch((error) => {
-        console.log("Error fetching user data:", error);
-      });
-  }, []);
 
   return isAuth ? (
     <div className="todos-page">

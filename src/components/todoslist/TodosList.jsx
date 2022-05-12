@@ -14,7 +14,7 @@ const TodosList = ({ todos, showTodosLimit, limits }) => {
         {todos.slice(0, limits).map((todo) => (
           <TodosItem
             key={todo.id}
-            id={todo.id}
+            tid={todo.id}
             title={todo.title}
             subtitle={todo.subtitle}
             done={todo.done}
@@ -22,7 +22,7 @@ const TodosList = ({ todos, showTodosLimit, limits }) => {
         ))}
       </ul>
       <button className="limit-btn" onClick={showTodosLimit}>
-        Show more
+        Show more 5
       </button>
     </div>
   );

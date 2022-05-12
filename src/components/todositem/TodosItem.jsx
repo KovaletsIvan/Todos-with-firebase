@@ -3,15 +3,19 @@ import React from "react";
 import { db } from "../../firebase";
 import { ref, remove, update } from "firebase/database";
 
+import { useAuth } from "../../hook/useAuth";
+
 import "./todositem.scss";
 
-const TodosItem = ({ id, title, subtitle, done }) => {
+const TodosItem = ({ tid, title, subtitle, done }) => {
+  const { id } = useAuth();
+
   const handleDelete = (id) => {
-    remove(ref(db, `todos/` + id));
+    remove(ref(db, `todos/${id}/userTodo/` + tid));
   };
 
-  const handeleDone = (id) => {
-    update(ref(db, "todos/" + id), { done: !done });
+  const handeleDone = (tid) => {
+    update(ref(db, `todos/${id}/userTodo/` + tid), { done: !done });
   };
   const classDone = `item-title ${done ? "done" : null}`;
   return (
@@ -25,7 +29,7 @@ const TodosItem = ({ id, title, subtitle, done }) => {
         type="checkbox"
         checked={done}
         onChange={() => {
-          handeleDone(id);
+          handeleDone(tid);
         }}
       />
       <span
