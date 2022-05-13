@@ -10,6 +10,9 @@
 .title {
   position: relative;
   bottom: 40px;
+  @media screen and (max-width: 750px) {
+    font-size: 27px;
+  }
 }
 .linck {
   margin-left: 10px;
