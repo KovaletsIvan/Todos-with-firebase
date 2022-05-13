@@ -1,6 +1,9 @@
 .todos-list {
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 750px) {
+    width: 85%;
+  }
 }
 
 .list {
@@ -11,6 +14,9 @@
   margin-top: 20px;
   list-style: none;
   width: 720px;
+  @media screen and (max-width: 750px) {
+    width: 100%;
+  }
 }
 .no-data {
   margin-top: 50px;
